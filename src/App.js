@@ -109,13 +109,13 @@ class SortControls extends Component {
         <span style={{margin: '20 0 20 15'}}>Sort by:</span>
         <span className="control-item">
           <span className="control-item-title">artist</span>
-          <a className="control-item-link" data-field="artist" onClick={this.props.sortByAsc}>(A-z)</a>
-          <a data-field="artist" onClick={this.props.sortByDesc}>(Z-a)</a>
+          <a className="control-item-link" data-field="artist" onClick={this.props.sortByAsc}>(a &rarr; z)</a>
+          <a data-field="artist" onClick={this.props.sortByDesc}>(z &rarr; a)</a>
         </span>
         <span className="control-item">
           <span className="control-item-title">title</span>
-          <a className="control-item-link" data-field="title" onClick={this.props.sortByAsc}>(A-z)</a>
-          <a data-field="title" onClick={this.props.sortByDesc}>(Z-a)</a>
+          <a className="control-item-link" data-field="title" onClick={this.props.sortByAsc}>(a &rarr; z)</a>
+          <a data-field="title" onClick={this.props.sortByDesc}>(z &rarr; a)</a>
         </span>
         <span className="control-item">
           <span className="control-item-title">length</span>
