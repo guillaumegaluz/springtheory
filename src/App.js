@@ -105,7 +105,8 @@ class Controls extends Component {
   render() {
     return (
       <div style={{marginBottom: '30'}} className="controls">
-        <h3 style={{margin: '20 0 10 15'}}>Filter the Spring Theory catalogue by:</h3>
+        <h2 style={{margin: '20 0 10 15'}}>Welcome to Spring Theory Records.</h2>
+        <span style={{margin: '20 0 20 15'}}>Sort by:</span>
         <span className="control-item">
           <span className="control-item-title">artist</span>
           <a className="control-item-link" data-field="artist" onClick={this.props.sortByAsc}>(A-z)</a>
