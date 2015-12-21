@@ -117,11 +117,6 @@ class Controls extends Component {
           <a data-field="title" onClick={this.props.sortByDesc}>(Z-a)</a>
         </span>
         <span className="control-item">
-          <span className="control-item-title">bpm</span>
-          <a className="control-item-link" data-field="bpm" onClick={this.props.sortByAsc}>&uarr;</a>
-          <a data-field="bpm" onClick={this.props.sortByDesc}>&darr;</a>
-        </span>
-        <span className="control-item">
           <span className="control-item-title">length</span>
           <a className="control-item-link" data-field="length" onClick={this.props.sortByAsc}>&uarr;</a>
           <a data-field="length" onClick={this.props.sortByDesc}>&darr;</a>
@@ -130,6 +125,11 @@ class Controls extends Component {
           <span className="control-item-title">year</span>
           <a className="control-item-link" data-field="year" onClick={this.props.sortByAsc}>&uarr;</a>
           <a data-field="year" onClick={this.props.sortByDesc}>&darr;</a>
+        </span>
+        <span className="control-item">
+          <span className="control-item-title">bpm</span>
+          <a className="control-item-link" data-field="bpm" onClick={this.props.sortByAsc}>&uarr;</a>
+          <a data-field="bpm" onClick={this.props.sortByDesc}>&darr;</a>
         </span>
       </div>
     )
