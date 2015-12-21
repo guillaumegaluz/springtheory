@@ -66,6 +66,16 @@ class Tracks extends Component {
     });
     return (
       <table>
+        <thead>
+          <tr>
+            <th>Cover</th>
+            <th>Artist</th>
+            <th>Title</th>
+            <th>Length</th>
+            <th>Year</th>
+            <th>BPM</th>
+          </tr>
+         </thead>
         <tbody>
           { displayedTracks }
         </tbody>
@@ -79,10 +89,11 @@ class Track extends Component {
     return (
       <tr>
         <td><img style={{}} src={ this.props.track.artwork } /></td>
-        <td><span style={{}}>{ this.props.track.artist }</span></td>
-        <td><span style={{color: '#aaa'}}>{ this.props.track.title }</span></td>
-        <td><span style={{color: '#ccc'}}>{ this.props.track.length }</span></td>
-        <td><span style={{color: '#ccc'}}>{ this.props.track.year }</span></td>
+        <td><span className="track-artist">{ this.props.track.artist }</span></td>
+        <td><span className="track-title">{ this.props.track.title }</span></td>
+        <td><span className="track-length">{ this.props.track.length }</span></td>
+        <td><span className="track-year">{ this.props.track.year }</span></td>
+        <td><span className="track-bpm">{ this.props.track.bpm }</span></td>
       </tr>
     );
   }
@@ -91,8 +102,8 @@ class Track extends Component {
 class Controls extends Component {
   render() {
     return (
-      <div style={{marginBottom: '20'}} className="controls">
-        <h4 style={{margin: '20 0 5'}}>Filter the Spring Theory catalogue by:</h4>
+      <div style={{marginBottom: '30'}} className="controls">
+        <h3 style={{margin: '20 0 10 15'}}>Filter the Spring Theory catalogue by:</h3>
         <span className="control-item">
           <span className="control-item-title">artist</span>
           <a className="control-item-link" data-field="artist" onClick={this.props.sortByAsc}>(A-z)</a>
