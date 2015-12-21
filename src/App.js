@@ -74,6 +74,7 @@ class Tracks extends Component {
             <th>Length</th>
             <th>Year</th>
             <th>BPM</th>
+            <th>Link</th>
           </tr>
          </thead>
         <tbody>
@@ -94,6 +95,7 @@ class Track extends Component {
         <td><span className="track-length">{ this.props.track.length }</span></td>
         <td><span className="track-year">{ this.props.track.year }</span></td>
         <td><span className="track-bpm">{ this.props.track.bpm }</span></td>
+        <td><span className="track-link"><a href={ this.props.track.link } target='_blank'>play</a></span></td>
       </tr>
     );
   }
