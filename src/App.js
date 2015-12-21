@@ -9,6 +9,7 @@ export default class App extends Component {
     this.sortBy = this.sortBy.bind(this);
     this.sortByAsc = this.sortByAsc.bind(this);
     this.sortByDesc = this.sortByDesc.bind(this);
+    this.shuffle = this.shuffle.bind(this);
     this.state = {
       tracks: this.parseFromCSV()
     }
@@ -50,9 +51,15 @@ export default class App extends Component {
     });
   }
 
+  shuffle() {
+    this.setState({
+      tracks: _.shuffle(this.state.tracks)
+    });
+  }
+
   render() {
     return <div className="app">
-      <SortControls sortByAsc={this.sortByAsc} sortByDesc={this.sortByDesc} />
+      <SortControls sortByAsc={this.sortByAsc} sortByDesc={this.sortByDesc} shuffle={this.shuffle} />
       <Tracks tracks={this.state.tracks} />
     </div>
   }
@@ -131,6 +138,9 @@ class SortControls extends Component {
           <span className="control-item-title">bpm</span>
           <a className="control-item-link" data-field="bpm" onClick={this.props.sortByAsc}>&uarr;</a>
           <a data-field="bpm" onClick={this.props.sortByDesc}>&darr;</a>
+        </span>
+        <span className="control-item">
+          <a className="control-item-link" onClick={this.props.shuffle}>shuffle</a>
         </span>
       </div>
     )
