@@ -52,7 +52,7 @@ export default class App extends Component {
 
   render() {
     return <div className="app">
-      <Controls sortByAsc={this.sortByAsc} sortByDesc={this.sortByDesc} />
+      <SortControls sortByAsc={this.sortByAsc} sortByDesc={this.sortByDesc} />
       <Tracks tracks={this.state.tracks} />
     </div>
   }
@@ -101,7 +101,7 @@ class Track extends Component {
   }
 }
 
-class Controls extends Component {
+class SortControls extends Component {
   render() {
     return (
       <div style={{marginBottom: '30'}} className="controls">
