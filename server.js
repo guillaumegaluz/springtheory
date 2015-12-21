@@ -14,5 +14,5 @@ new WebpackDevServer(webpack(config), {
     console.log(err);
   }
 
-  console.log("Listening at " serverHost + ":" + serverPort);
+  console.log("Listening at " + serverHost + ":" + serverPort);
 });
