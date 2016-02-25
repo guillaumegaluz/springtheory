@@ -2,50 +2,143 @@
   <head>
     <title>Spring Theory Records</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href='https://fonts.googleapis.com/css?family=Source+Serif+Pro' rel='stylesheet' type='text/css'></link>
     <style>
+      /*
+          Override
+      */
+
+      * {
+        box-sizing: border-box;
+      }
       body {
-        background-color: #f9f9f9;
-        font-family: 'monaco';
-        font-size: 12px;
+        font-family: 'Source Serif Pro', serif;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        position: relative;
+      }
+      @media (max-width: 768px) {
+        body {
+          height: auto;
+        }
       }
       a {
-        color: rgb(135, 197, 191);
         text-decoration: none;
+        color: rgba(51, 153, 153, 0.7);
       }
-      table {
-        font-size: 12px;
+      .cursor--e-resize {
+        cursor: e-resize;
       }
-    	img {
-        height: 35px;
-        width: 35px;
+      .hidden {
+        visibility: hidden;
       }
-      th {
-        text-align: left;
-        padding-left: 10px;
+
+      /*
+          Containers
+      */
+
+      .nav, .display {
+        position: relative;
+        height: 100%;
+        float: left;
       }
-      td {
-        padding: 2px 10px;
-    	}
-      .controls a {
-        margin: 0 0;
-        color: rgb(224, 116, 84);
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
+      .nav {
+        width: 44%;
       }
-      .controls .control-item {
-        background-color: #ffffff;
-        border: dashed 1px rgba(224, 116, 84, 0.25);
-        border-radius: 5px;
-        margin: 0 8px;
-        padding: 5px;
+      .display {
+        width: 56%;
       }
-      .controls .control-item-title {
-        margin-right: 5px;
+      @media (max-width: 768px) {
+        .nav, .display {
+          width: 100%;
+          float: none;
+        }
       }
-      .controls .control-item-link {
-        margin-right: 5px;
+
+      /*
+          Nav
+      */
+
+      .nav__container {
+        position: relative;
+        height: 100%;
+        padding: 40px 40px;
       }
+      img.nav__logo {
+        width: 80px;
+        height: 58px;
+        margin-bottom: 40px;
+      }
+      .nav__item {
+        margin-bottom: 40px;
+      }
+      .nav__title {
+        padding-bottom: 20px;
+      }
+      .nav__title .nav__title--main {
+        font-size: 36px;
+        line-height: 36px;
+        display: block;
+      }
+      .nav__title .nav__title--sub {
+        font-size: 14px;
+        font-style: italic;
+        color: #bbb;
+      }
+      @media (max-width: 768px) {
+        .nav__title {
+          font-size: 24px;
+          line-height: 16px;
+        }
+      }
+      .nav__content--item {
+        padding: 1px 0;
+      }
+      .nav__content--item.selected .nav__content--wrapper {
+        display: inline;
+        background-color: rgba(51, 153, 153, 0.2);
+      }
+      .artist {
+        font-style: normal;
+        font-weight: 600;
+      }
+      .release {
+        font-style: italic;
+        color: rgb(100,100,100);
+      }
+      .year {
+        font-style: italic;
+        color: rgb(225,225,225);
+      }
+
+      /*
+          Hero
+      */
+
+      .loading {
+        position: absolute;
+        top: 50%;
+        left: 45%;
+      }
+      .hero {
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+      }
+      .hero.st001 { background: url("img/st001.jpg"); background-size: cover; background-repeat: no-repeat; }
+      .hero.st002 { background: url("img/st002.jpg"); background-size: cover; background-repeat: no-repeat; }
+      .hero.st003 { background: url("img/st003.jpg"); background-size: cover; background-repeat: no-repeat; }
+      .hero.st004 { background: url("img/st004.jpg"); background-size: cover; background-repeat: no-repeat; }
+      .hero.st005 { background: url("img/st005.jpg"); background-size: cover; background-repeat: no-repeat; }
+      .hero.st006 { background: url("img/st006.jpg"); background-size: cover; background-repeat: no-repeat; }
+      @media (max-width: 768px) {
+        .hero {
+          display: none;
+        }
+      }
+
     </style>
   </head>
   <body>

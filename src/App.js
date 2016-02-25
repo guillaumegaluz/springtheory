@@ -1,148 +1,185 @@
 import React, { Component } from 'react';
-import _ from 'underscore';
 import parse from 'csv-parse';
-
+import $ from 'jquery';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.sortBy = this.sortBy.bind(this);
-    this.sortByAsc = this.sortByAsc.bind(this);
-    this.sortByDesc = this.sortByDesc.bind(this);
-    this.shuffle = this.shuffle.bind(this);
     this.state = {
-      tracks: this.parseFromCSV()
-    }
+      releases: this.parseFromCSV(),
+      activeRelease: this.parseFromCSV()['st006'],
+      selectedRelease: null
+    };
+    this.onReleaseMouseOver = this.onReleaseMouseOver.bind(this);
+    this.onReleaseClick = this.onReleaseClick.bind(this);
+    this.onBackClick = this.onBackClick.bind(this);
+  }
+
+  onReleaseMouseOver(e) {
+    const releaseId = e.currentTarget.dataset.releaseId;
+    this.setState({
+      activeRelease: this.state.releases[releaseId]
+    });
+  }
+
+  onReleaseClick(e) {
+    const releaseId = e.currentTarget.dataset.releaseId;
+    this.setState({
+      selectedRelease: this.state.releases[releaseId]
+    });
+  }
+
+  onBackClick() {
+    this.setState({
+      selectedRelease: null
+    });
   }
 
   parseFromCSV() {
-    return require('./tracks.csv') || [];
+    const releasesAsList = require('./releases.csv');
+    const releasesAsObject = releasesAsList.reduce((releasesObj, release) => {
+      releasesObj[release.id] = release;
+      return releasesObj;
+    }, {});
+
+    return releasesAsObject;
   }
 
-  sortByAsc(e) {
-    this.sortBy(e, false);
-  }
-
-  sortByDesc(e) {
-    this.sortBy(e, true)
-  }
-
-  sortBy(e, descending=true) {
-    var field = e.target.dataset.field;
-    var tracks = this.state.tracks;
-
-    var sortedTracks = _.sortBy(
-      tracks, function(track){
-        if (field === 'length') {
-          var length = track[field];
-          var lengthInSeconds = parseInt(length.split(':')[0]*60 + length.split(':')[1]);
-          return lengthInSeconds;
-        }
-        return track[field];
-      }
-    );
-
-    if (descending) {
-      sortedTracks = sortedTracks.reverse()
+  render() {
+    let releaseId;
+    if (this.state.selectedRelease) {
+      releaseId = this.state.selectedRelease.id;
+    } else {
+      releaseId = this.state.activeRelease.id;
     }
 
-    this.setState({
-      tracks: sortedTracks
-    });
-  }
-
-  shuffle() {
-    this.setState({
-      tracks: _.shuffle(this.state.tracks)
-    });
-  }
-
-  render() {
-    return <div className="app">
-      <SortControls sortByAsc={this.sortByAsc} sortByDesc={this.sortByDesc} shuffle={this.shuffle} />
-      <Tracks tracks={this.state.tracks} />
-    </div>
-  }
-}
-
-class Tracks extends Component {
-  render() {
-    var displayedTracks = [];
-    this.props.tracks.forEach(function(track) {
-      displayedTracks.push(<Track track={track} key={track.title} />);
-    });
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Cover</th>
-            <th>Artist</th>
-            <th>Title</th>
-            <th>Length</th>
-            <th>Year</th>
-            <th>BPM</th>
-            <th>Link</th>
-          </tr>
-         </thead>
-        <tbody>
-          { displayedTracks }
-        </tbody>
-      </table>
-    );
-  }
-}
-
-class Track extends Component {
-  render() {
-    return (
-      <tr>
-        <td><img style={{}} src={ this.props.track.artwork } /></td>
-        <td><span className="track-artist">{ this.props.track.artist }</span></td>
-        <td><span className="track-title">{ this.props.track.title }</span></td>
-        <td><span className="track-length">{ this.props.track.length }</span></td>
-        <td><span className="track-year">{ this.props.track.year }</span></td>
-        <td><span className="track-bpm">{ this.props.track.bpm }</span></td>
-        <td><span className="track-link"><a href={ this.props.track.link } target='_blank'>play</a></span></td>
-      </tr>
-    );
-  }
-}
-
-class SortControls extends Component {
-  render() {
-    return (
-      <div style={{marginBottom: '30'}} className="controls">
-        <h2 style={{margin: '20 0 10 15'}}>Welcome to Spring Theory Records.</h2>
-        <span style={{margin: '20 0 20 15'}}>Sort by:</span>
-        <span className="control-item">
-          <span className="control-item-title">artist</span>
-          <a className="control-item-link" data-field="artist" onClick={this.props.sortByAsc}>(a &rarr; z)</a>
-          <a data-field="artist" onClick={this.props.sortByDesc}>(z &rarr; a)</a>
-        </span>
-        <span className="control-item">
-          <span className="control-item-title">title</span>
-          <a className="control-item-link" data-field="title" onClick={this.props.sortByAsc}>(a &rarr; z)</a>
-          <a data-field="title" onClick={this.props.sortByDesc}>(z &rarr; a)</a>
-        </span>
-        <span className="control-item">
-          <span className="control-item-title">length</span>
-          <a className="control-item-link" data-field="length" onClick={this.props.sortByAsc}>&uarr;</a>
-          <a data-field="length" onClick={this.props.sortByDesc}>&darr;</a>
-        </span>
-        <span className="control-item">
-          <span className="control-item-title">year</span>
-          <a className="control-item-link" data-field="year" onClick={this.props.sortByAsc}>&uarr;</a>
-          <a data-field="year" onClick={this.props.sortByDesc}>&darr;</a>
-        </span>
-        <span className="control-item">
-          <span className="control-item-title">bpm</span>
-          <a className="control-item-link" data-field="bpm" onClick={this.props.sortByAsc}>&uarr;</a>
-          <a data-field="bpm" onClick={this.props.sortByDesc}>&darr;</a>
-        </span>
-        <span className="control-item">
-          <a className="control-item-link" onClick={this.props.shuffle}>shuffle</a>
-        </span>
+      <div>
+        <Nav
+          releases={this.state.releases}
+          activeRelease={this.state.activeRelease}
+          selectedRelease={this.state.selectedRelease}
+          onReleaseMouseOver={this.onReleaseMouseOver}
+          onBackClick={this.onBackClick}
+          onReleaseClick={this.onReleaseClick} />
+        <Hero
+          releaseId={releaseId} />
       </div>
-    )
+    );
+  }
+}
+
+class Nav extends Component {
+  render() {
+    let navContent;
+    if (this.props.selectedRelease) {
+      navContent = (
+        <NavReleaseDetails
+          selectedRelease={this.props.selectedRelease}
+          onBackClick={this.props.onBackClick} />
+      );
+    } else {
+      navContent = (
+        <NavReleasesList
+          releases={this.props.releases}
+          activeRelease={this.props.activeRelease}
+          selectedRelease={this.props.selectedRelease}
+          onReleaseClick={this.props.onReleaseClick}
+          onReleaseMouseOver={this.props.onReleaseMouseOver} />
+      )
+    }
+
+    return (
+      <div className="nav">
+  			<div className="nav__container">
+  				<img className="nav__logo" src="img/logo.png" />
+
+          {navContent}
+
+          <div className="nav__item">
+            <div><a href="mailto:bonjour@spring-theory.com">Get in touch</a></div>
+          </div>
+
+  			</div>
+  		</div>
+    );
+  }
+}
+
+class NavReleasesList extends Component {
+  render() {
+    const navContentItems = [];
+
+    for (const releaseId in this.props.releases) {
+      const className = (releaseId === this.props.activeRelease.id) ? 'selected' : '';
+
+      navContentItems.push(
+        <NavContentItem
+          key={releaseId}
+          className={className}
+          release={this.props.releases[releaseId]}
+          onReleaseClick={this.props.onReleaseClick}
+          onReleaseMouseOver={this.props.onReleaseMouseOver} />
+      );
+    }
+
+    return (
+      <div className="nav__item">
+        <div className="nav__title">
+          <span className="nav__title--main">Releases</span>
+          <span className="nav__title--sub">latest first</span>
+        </div>
+        <div className="nav__content">
+          {navContentItems}
+        </div>
+      </div>
+    );
+  }
+}
+
+class NavReleaseDetails extends Component {
+  render() {
+    return (
+      <div className="nav__item">
+        <div className="nav__link">
+          <div onClick={this.props.onBackClick}>Back to all releases</div>
+        </div>
+        <div className="nav__title">
+          <span className="nav__title--main">{this.props.selectedRelease.artist}</span>
+          <span className="nav__title--main">{this.props.selectedRelease.title}</span>
+          <span className="nav__title--main">{this.props.selectedRelease.year}</span>
+        </div>
+        <div className="nav__content">
+        </div>
+      </div>
+    );
+  }
+}
+
+class NavContentItem extends Component {
+  render() {
+    return (
+      <div
+        className={`nav__content--item cursor--e-resize ${this.props.className}`}
+        data-release-id={this.props.release.id}
+        onClick={this.props.onReleaseClick}
+        onMouseOver={this.props.onReleaseMouseOver}>
+        <span className="nav__content--wrapper">
+          <span className="artist">{this.props.release.artist}</span>
+          <span className="release">{this.props.release.title}</span>
+        </span>
+        <span className="year">{this.props.release.year}</span>
+      </div>
+    );
+  }
+}
+
+class Hero extends Component {
+  render() {
+    return (
+      <div className="display">
+  			<div className={`hero ${this.props.releaseId}`}></div>
+  		</div>
+    );
   }
 }
