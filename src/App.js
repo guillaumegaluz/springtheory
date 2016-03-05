@@ -19,34 +19,23 @@ export default class App extends Component {
     this.onBackClick = this.onBackClick.bind(this);
   }
 
-  onReleaseMouseOver(e) {
-    const releaseId = e.currentTarget.dataset.releaseId;
-    this.setState({
-      activeRelease: this.state.releases[releaseId]
-    });
-  }
-
-  onReleaseClick(e) {
-    const releaseId = e.currentTarget.dataset.releaseId;
-    this.setState({
-      selectedRelease: this.state.releases[releaseId]
-    });
-  }
-
-  onBackClick() {
-    this.setState({
-      selectedRelease: null
-    });
-  }
-
   parseFromCSV() {
-    const releasesAsList = require('./releases.csv');
-    const releasesAsObject = releasesAsList.reduce((releasesObj, release) => {
+    return require('./releases.csv').reduce((releasesObj, release) => {
       releasesObj[release.id] = release;
       return releasesObj;
     }, {});
+  }
 
-    return releasesAsObject;
+  onReleaseMouseOver(e) {
+    this.setState({ activeRelease: this.state.releases[e.currentTarget.dataset.releaseId] });
+  }
+
+  onReleaseClick(e) {
+    this.setState({ selectedRelease: this.state.releases[e.currentTarget.dataset.releaseId] });
+  }
+
+  onBackClick() {
+    this.setState({ selectedRelease: null });
   }
 
   render() {
@@ -66,6 +55,7 @@ export default class App extends Component {
           onReleaseMouseOver={this.onReleaseMouseOver}
           onBackClick={this.onBackClick}
           onReleaseClick={this.onReleaseClick} />
+
         <Hero
           releaseId={releaseId} />
       </div>
