@@ -58,7 +58,7 @@
       }
 
       /*
-          Nav
+          Desktop Nav
       */
 
       .nav__container {
@@ -114,6 +114,33 @@
       }
 
       /*
+          Mobile HP
+      */
+
+      .nav_container-mobile {
+        text-align: center;
+      }
+      .nav_container-mobile img.nav__logo {
+        width: 80px;
+        height: 58px;
+        margin: 20px 0 40px;
+      }
+      .release-container {
+        margin-bottom: 40px;
+      }
+      .release-info {
+        margin-bottom: 20px;
+      }
+      .release-info-artist {
+        font-style: normal;
+        font-weight: 600;
+      }
+      .release-info-title {
+        font-style: italic;
+        color: rgb(100,100,100);
+      }
+
+      /*
           Hero
       */
 
@@ -122,9 +149,14 @@
         top: 50%;
         left: 45%;
       }
-      .hero {
+      .hero, .artwork {
         background-repeat: no-repeat;
         height: 100%;
+        width: 100%;
+      }
+
+      .artwork {
+        height: 100vw;
         width: 100%;
       }
       .hero.st001 { background: url("img/st001.jpg"); background-size: cover; background-repeat: no-repeat; }
@@ -133,6 +165,13 @@
       .hero.st004 { background: url("img/st004.jpg"); background-size: cover; background-repeat: no-repeat; }
       .hero.st005 { background: url("img/st005.jpg"); background-size: cover; background-repeat: no-repeat; }
       .hero.st006 { background: url("img/st006.jpg"); background-size: cover; background-repeat: no-repeat; }
+
+      .artwork.st001 { background: url("img/st001.jpg"); background-size: contain; background-repeat: no-repeat; }
+      .artwork.st002 { background: url("img/st002.jpg"); background-size: contain; background-repeat: no-repeat; }
+      .artwork.st003 { background: url("img/st003.jpg"); background-size: contain; background-repeat: no-repeat; }
+      .artwork.st004 { background: url("img/st004.jpg"); background-size: contain; background-repeat: no-repeat; }
+      .artwork.st005 { background: url("img/st005.jpg"); background-size: contain; background-repeat: no-repeat; }
+      .artwork.st006 { background: url("img/st006.jpg"); background-size: contain; background-repeat: no-repeat; }
       @media (max-width: 768px) {
         .hero {
           display: none;

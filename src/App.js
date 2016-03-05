@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import parse from 'csv-parse';
 import $ from 'jquery';
-import useragent from 'express-useragent';
+import mobile from 'is-mobile';
 
-import DesktopNav from './nav-desktop';
-import Hero from './hero';
+import DesktopHomePage from './desktop-home-page';
+import MobileHomePage from './mobile-home-page';
 
 export default class App extends Component {
   constructor(props) {
@@ -39,26 +39,21 @@ export default class App extends Component {
   }
 
   render() {
-    let releaseId;
-    if (this.state.selectedRelease) {
-      releaseId = this.state.selectedRelease.id;
+    if (mobile()) {
+      return (
+        <MobileHomePage
+          releases={this.state.releases} />
+      );
     } else {
-      releaseId = this.state.activeRelease.id;
-    }
-
-    return (
-      <div>
-        <DesktopNav
+      return (
+        <DesktopHomePage
           releases={this.state.releases}
           activeRelease={this.state.activeRelease}
           selectedRelease={this.state.selectedRelease}
           onReleaseMouseOver={this.onReleaseMouseOver}
           onBackClick={this.onBackClick}
           onReleaseClick={this.onReleaseClick} />
-
-        <Hero
-          releaseId={releaseId} />
-      </div>
-    );
+      );
+    }
   }
 }

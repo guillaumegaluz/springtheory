@@ -38,7 +38,7 @@
     "csv-parse": "^1.0.1",
     "dsv-loader": "^1.0.3",
     "eslint-plugin-react": "^3.6.2",
-    "express-useragent": "^0.2.4",
+    "is-mobile": "^0.2.2",
     "jquery": "^2.2.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
