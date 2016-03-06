@@ -1,7 +1,30 @@
-id,position,title
-st006,A1,Clepsydra
-st006,A2,Seven - Segments
-st006,A3,A Square Tablet Strewn With Dust
-st006,B1,White White
-st006,B2,Soroban
-st006,B3,Beghilos
+id,side,position,title
+st006,A,1,Clepsydra
+st006,A,2,Seven - Segments
+st006,A,3,A Square Tablet Strewn With Dust
+st006,B,1,White White
+st006,B,2,Soroban
+st006,B,3,Beghilos
+
+st005,A,1,Sleep Quarters
+st005,A,2,Paper USB
+st005,B,1,Shiny Dog
+st005,B,2,For Runner
+
+st004,A,1,Once I Found A Diamond
+st004,A,2,Once I Found A Diamond (Jacques Renault Trouble Funk Remix)
+st004,B,1,Sweet Bitter Love
+st004,B,2,Bouzouk
+
+st003,A,1,Let Me Love & Steal
+st003,A,2,Let Me Love & Steal (Triple Scorpio Mix)
+st003,B,1,Honest Gangster
+st003,B,2,Honest Gangster (Arpapella)
+
+st002,A,1,Czarat
+st002,A,2,Czarat (Secret Circuit Acid Dub Remix)
+st002,B,1,Vietnamoses
+
+st001,A,1,Church of SoMa
+st001,A,2,Church of SoMa (HNNY Remix)
+st001,B,1,Synaguogue of SoMa

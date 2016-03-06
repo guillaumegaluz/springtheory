@@ -43,13 +43,7 @@ class MobileHomePage extends Component {
       <div className="nav">
   			<div className="nav_container-mobile">
   				<img className="nav__logo" src="img/logo.png" />
-
           {this.getBody()}
-
-          <div className="nav__item">
-            <div><a href="mailto:bonjour@spring-theory.com">Get in touch</a></div>
-          </div>
-
   			</div>
   		</div>
     );

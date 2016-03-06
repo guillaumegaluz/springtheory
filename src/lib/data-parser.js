@@ -13,7 +13,7 @@ import _ from 'underscore';
 //         title: 'Church of SoMa'
 //       },
 //       ...
-//     ]
+//     ],
 //   },
 //   ...
 // }
@@ -21,6 +21,7 @@ import _ from 'underscore';
 function parseFromCSV() {
   const releases = require('../../data/releases.csv');
   const tracks = require('../../data/tracks.csv');
+
   const tracksGroupedByRelease = _.groupBy(tracks, function(track){ return track.id; });
 
   return releases.reduce((releasesObj, release) => {
