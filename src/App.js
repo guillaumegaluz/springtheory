@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import parse from 'csv-parse';
 import $ from 'jquery';
 import mobile from 'is-mobile';
 
+import parseFromCSV from './lib/data-parser';
 import DesktopHomePage from './desktop-home-page';
 import MobileHomePage from './mobile-home-page';
 
@@ -10,20 +10,13 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      releases: this.parseFromCSV(),
-      activeRelease: this.parseFromCSV()['st006'],
+      releases: parseFromCSV(),
+      activeRelease: parseFromCSV()['st006'],
       selectedRelease: null
     };
     this.onReleaseMouseOver = this.onReleaseMouseOver.bind(this);
     this.onReleaseClick = this.onReleaseClick.bind(this);
     this.onBackClick = this.onBackClick.bind(this);
-  }
-
-  parseFromCSV() {
-    return require('./releases.csv').reduce((releasesObj, release) => {
-      releasesObj[release.id] = release;
-      return releasesObj;
-    }, {});
   }
 
   onReleaseMouseOver(e) {
