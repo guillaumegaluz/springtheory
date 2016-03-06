@@ -23,7 +23,6 @@ class NavReleasesList extends Component {
       <div className="nav__item">
         <div className="nav__title">
           <span className="nav__title--main">Releases</span>
-          <span className="nav__title--sub">latest first</span>
         </div>
         <div className="nav__content">
           {navContentItems}

@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
+import NavReleaseDetails from './nav-release-details';
 import Hero from './hero';
 
 class MobileHomePage extends Component {
   renderRelease(release) {
     return (
-      <div className="release-container">
+      <div
+          className="release-container"
+          data-release-id={release.id}
+          onClick={this.props.onReleaseClick}>
         <div className="release-info">
           <div className="release-info-artist">{release.artist}</div>
           <div className="release-info-title">{release.title}</div>
@@ -15,22 +19,32 @@ class MobileHomePage extends Component {
     )
   }
 
-  render() {
-    const items = [];
-
-    for (const releaseId in this.props.releases) {
-      const release = this.props.releases[releaseId];
-      items.push(
-        this.renderRelease(release)
+  getBody() {
+    if (this.props.selectedRelease) {
+      return (
+        <NavReleaseDetails
+          selectedRelease={this.props.selectedRelease}
+          onBackClick={this.props.onBackClick} />
       );
+    } else {
+      const items = [];
+      for (const releaseId in this.props.releases) {
+        const release = this.props.releases[releaseId];
+        items.push(
+          this.renderRelease(release)
+        );
+      }
+      return items;
     }
+  }
 
+  render() {
     return (
       <div className="nav">
   			<div className="nav_container-mobile">
   				<img className="nav__logo" src="img/logo.png" />
 
-          {items}
+          {this.getBody()}
 
           <div className="nav__item">
             <div><a href="mailto:bonjour@spring-theory.com">Get in touch</a></div>

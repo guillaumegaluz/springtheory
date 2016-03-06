@@ -27,13 +27,7 @@ class DesktopNav extends Component {
       <div className="nav">
   			<div className="nav__container">
   				<img className="nav__logo" src="img/logo.png" />
-
           {navContent}
-
-          <div className="nav__item">
-            <div><a href="mailto:bonjour@spring-theory.com">Get in touch</a></div>
-          </div>
-
   			</div>
   		</div>
     );

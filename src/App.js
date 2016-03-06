@@ -42,7 +42,10 @@ export default class App extends Component {
     if (mobile()) {
       return (
         <MobileHomePage
-          releases={this.state.releases} />
+          releases={this.state.releases}
+          selectedRelease={this.state.selectedRelease}
+          onBackClick={this.onBackClick}
+          onReleaseClick={this.onReleaseClick}/>
       );
     } else {
       return (

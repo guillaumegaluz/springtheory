@@ -12,7 +12,6 @@ class NavContentItem extends Component {
           <span className="artist">{this.props.release.artist}</span>
           <span className="release">{this.props.release.title}</span>
         </span>
-        <span className="year">{this.props.release.year}</span>
       </div>
     );
   }
