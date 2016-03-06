@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import _ from 'underscore';
+import mobile from 'is-mobile';
 
 class NavReleaseDetails extends Component {
+  renderImages(release) {
+    if (mobile()) {
+      return (
+        <div className="artwork-wrapper">
+          <div className={`artwork ${release.id}`}></div>
+        </div>
+      );
+    }
+  }
+
   renderTracks() {
     const tracks = this.props.selectedRelease.tracks;
     const trackGroupedBySide = _.groupBy(tracks, function(track){ return track.side; });
@@ -45,6 +56,7 @@ class NavReleaseDetails extends Component {
         <div className="tracklist">
           {this.renderTracks()}
         </div>
+        {this.renderImages(this.props.selectedRelease)}
         <div className="credits">
           <p>{`Written and Produced by ${this.props.selectedRelease.artist}`}</p>
           <p>{`Artwork by ${this.props.selectedRelease.artwork_name}`}</p>

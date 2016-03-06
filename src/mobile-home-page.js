@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import NavReleaseDetails from './nav-release-details';
-import Hero from './hero';
 
 class MobileHomePage extends Component {
   renderRelease(release) {
