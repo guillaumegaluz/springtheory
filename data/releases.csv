@@ -1,7 +1,7 @@
-id,artist,title,year,artwork_name,artwork_link,design_name,design_url
-st006,Aria Rostami,Agnys,2016,Oejerum,http://oejerum.dk/,Kais Dhifi,http://kaisdhifi.tumblr.com/
-st005,Sage Caswell,Sleep Quarters,2015,Lucas McMahon,http://www.lucastmcmahon.com/,Kais Dhifi,http://kaisdhifi.tumblr.com/
-st004,Keita Sano,Sweet Bitter Love,2015,Reiji Isoi,http://heliographie.com/,Kais Dhifi,http://kaisdhifi.tumblr.com/
-st003,Avalon Emerson,Let Me Love & Steal,2014,Kais Dhifi,http://kaisdhifi.tumblr.com/,Kais Dhifi,http://kaisdhifi.tumblr.com/
-st002,Aria Rostami,Czarat,2014,Grady Gordon,http://gradygordon.com/,Kais Dhifi,http://kaisdhifi.tumblr.com/
-st001,Avalon Emerson,Church of SoMa,2014,Kais Dhifi,http://kaisdhifi.tumblr.com/,Kais Dhifi,http://kaisdhifi.tumblr.com/
+id,artist,title,year,buy_url,artwork_name,artwork_link,design_name,design_url
+st006,Aria Rostami,Agnys,2016,https://spring-theory.bandcamp.com/album/agnys,Oejerum,http://oejerum.dk/,Kais Dhifi,http://kaisdhifi.tumblr.com/
+st005,Sage Caswell,Sleep Quarters,2015,https://spring-theory.bandcamp.com/album/sleep-quarters,Lucas McMahon,http://www.lucastmcmahon.com/,Kais Dhifi,http://kaisdhifi.tumblr.com/
+st004,Keita Sano,Sweet Bitter Love,2015,https://spring-theory.bandcamp.com/album/sweet-bitter-love,Reiji Isoi,http://heliographie.com/,Kais Dhifi,http://kaisdhifi.tumblr.com/
+st003,Avalon Emerson,Let Me Love & Steal,2014,https://spring-theory.bandcamp.com/album/let-me-love-steal,Kais Dhifi,http://kaisdhifi.tumblr.com/,Kais Dhifi,http://kaisdhifi.tumblr.com/
+st002,Aria Rostami,Czarat,2014,https://spring-theory.bandcamp.com/album/czarat,Grady Gordon,http://gradygordon.com/,Kais Dhifi,http://kaisdhifi.tumblr.com/
+st001,Avalon Emerson,Church of SoMa,2014,https://spring-theory.bandcamp.com/album/church-of-soma,Kais Dhifi,http://kaisdhifi.tumblr.com/,Kais Dhifi,http://kaisdhifi.tumblr.com/

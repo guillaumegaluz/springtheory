@@ -25,6 +25,7 @@ export default class App extends Component {
 
   onReleaseClick(e) {
     this.setState({ selectedRelease: this.state.releases[e.currentTarget.dataset.releaseId] });
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 
   onBackClick() {
