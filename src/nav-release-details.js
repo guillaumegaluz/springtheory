@@ -24,9 +24,9 @@ class NavReleaseDetails extends Component {
       <div className="player">
         <iframe
           style={style}
-          src="https://bandcamp.com/EmbeddedPlayer/album=3143975255/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/"
+          src={`https://bandcamp.com/EmbeddedPlayer/album=${this.props.selectedRelease.bandcamp_id}/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/`}
           seamless>
-            <a href="http://spring-theory.bandcamp.com/album/agnys">Agnys by Aria Rostami</a>
+            <a href="http://spring-theory.bandcamp.com/album/agnys">{this.props.selectedRelease.title}</a>
         </iframe>
       </div>
     );
