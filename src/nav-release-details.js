@@ -24,7 +24,7 @@ class NavReleaseDetails extends Component {
       <div className="player">
         <iframe
           style={style}
-          src={`https://bandcamp.com/EmbeddedPlayer/album=${this.props.selectedRelease.bandcamp_id}/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/`}
+          src={`https://bandcamp.com/EmbeddedPlayer/album=${this.props.selectedRelease.bandcamp_id}/size=small/bgcol=ffffff/linkcol=339999/transparent=true/`}
           seamless>
             <a href="http://spring-theory.bandcamp.com/album/agnys">{this.props.selectedRelease.title}</a>
         </iframe>
@@ -99,7 +99,6 @@ class NavReleaseDetails extends Component {
           <p>{`Artwork by ${this.props.selectedRelease.artwork_name}`}</p>
           <p>{`Design by ${this.props.selectedRelease.design_name}`}</p>
         </div>
-        {this.renderBack()}
       </div>
     );
   }
