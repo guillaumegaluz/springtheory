@@ -11,7 +11,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       releases: parseFromCSV(),
-      activeRelease: parseFromCSV()['st006'],
+      activeRelease: parseFromCSV()['st007'],
       selectedRelease: null
     };
     this.onReleaseMouseOver = this.onReleaseMouseOver.bind(this);
