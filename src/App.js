@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import mobile from 'is-mobile';
 
 import parseFromCSV from './lib/data-parser';
@@ -9,11 +8,15 @@ import MobileHomePage from './mobile-home-page';
 export default class App extends Component {
   constructor(props) {
     super(props);
+    const releases = parseFromCSV();
+    const latestReleaseId = Object.keys(releases)[0];
+
     this.state = {
-      releases: parseFromCSV(),
-      activeRelease: parseFromCSV()['st007'],
+      releases: releases,
+      activeRelease: releases[latestReleaseId],
       selectedRelease: null
     };
+
     this.onReleaseMouseOver = this.onReleaseMouseOver.bind(this);
     this.onReleaseClick = this.onReleaseClick.bind(this);
     this.onBackClick = this.onBackClick.bind(this);
