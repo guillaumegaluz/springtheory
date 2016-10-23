@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import NavContentItem from './nav-content-item';
 
 class NavReleasesList extends Component {
-  render() {
+  getNavItems() {
     const navContentItems = [];
 
     for (const releaseId in this.props.releases) {
@@ -19,13 +19,17 @@ class NavReleasesList extends Component {
       );
     }
 
+    return navContentItems;
+  }
+
+  render() {
     return (
       <div className="nav__item">
         <div className="nav__title">
-          <span className="nav__title--main">Releases</span>
+          <span className="nav__title--main">{this.props.title}</span>
         </div>
         <div className="nav__content">
-          {navContentItems}
+          {this.getNavItems()}
         </div>
       </div>
     );

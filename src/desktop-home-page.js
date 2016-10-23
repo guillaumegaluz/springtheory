@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import DesktopNav from './nav-desktop';
+import NavDesktop from './nav-desktop';
 import Hero from './hero';
 
 class DesktopHomePage extends Component {
@@ -15,8 +15,9 @@ class DesktopHomePage extends Component {
   render() {
     return (
       <div>
-        <DesktopNav
+        <NavDesktop
           releases={this.props.releases}
+          mixes={this.props.mixes}
           activeRelease={this.props.activeRelease}
           selectedRelease={this.props.selectedRelease}
           onReleaseMouseOver={this.props.onReleaseMouseOver}

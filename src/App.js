@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import mobile from 'is-mobile';
 
-import parseFromCSV from './lib/data-parser';
+import {getReleasesFromCSV, getMixesFromCSV} from './lib/data-parser';
 import DesktopHomePage from './desktop-home-page';
 import MobileHomePage from './mobile-home-page';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    const releases = parseFromCSV();
+    const releases = getReleasesFromCSV();
+    const mixes = getMixesFromCSV();
     const latestReleaseId = Object.keys(releases)[0];
 
     this.state = {
       releases: releases,
+      mixes: mixes,
       activeRelease: releases[latestReleaseId],
       selectedRelease: null
     };
@@ -49,17 +51,19 @@ export default class App extends Component {
           releases={this.state.releases}
           selectedRelease={this.state.selectedRelease}
           onBackClick={this.onBackClick}
-          onReleaseClick={this.onReleaseClick}/>
+          onReleaseClick={this.onReleaseClick} />
       );
     } else {
       return (
         <DesktopHomePage
           releases={this.state.releases}
-          activeRelease={this.state.activeRelease}
+          mixes={this.state.mixes}
           selectedRelease={this.state.selectedRelease}
-          onReleaseMouseOver={this.onReleaseMouseOver}
           onBackClick={this.onBackClick}
-          onReleaseClick={this.onReleaseClick} />
+          onReleaseClick={this.onReleaseClick}
+
+          activeRelease={this.state.activeRelease}
+          onReleaseMouseOver={this.onReleaseMouseOver} />
       );
     }
   }

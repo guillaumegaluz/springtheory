@@ -18,7 +18,7 @@ import _ from 'underscore';
 //   ...
 // }
 
-function parseFromCSV() {
+export function getReleasesFromCSV() {
   const releases = require('../../data/releases.csv');
   const tracks = require('../../data/tracks.csv');
 
@@ -31,4 +31,16 @@ function parseFromCSV() {
   }, {});
 }
 
-export default parseFromCSV;
+export function getMixesFromCSV() {
+  const mixes = require('../../data/mixes.csv');
+  return mixes;
+  // const tracks = require('../../data/mixes_tracklists.csv');
+
+  // const tracksGroupedByRelease = _.groupBy(tracks, function(track){ return track.id; });
+  //
+  // return releases.reduce((releasesObj, release) => {
+  //   release['tracks'] = tracksGroupedByRelease[release.id];
+  //   releasesObj[release.id] = release;
+  //   return releasesObj;
+  // }, {});
+}

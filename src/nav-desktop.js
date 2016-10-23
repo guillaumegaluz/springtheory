@@ -3,35 +3,47 @@ import React, { Component } from 'react';
 import NavReleasesList from './nav-releases-list';
 import NavReleaseDetails from './nav-release-details';
 
-class DesktopNav extends Component {
-  render() {
-    let navContent;
+class NavDesktop extends Component {
+  getBody() {
     if (this.props.selectedRelease) {
-      navContent = (
+      return (
         <NavReleaseDetails
           selectedRelease={this.props.selectedRelease}
           onBackClick={this.props.onBackClick} />
       );
     } else {
-      navContent = (
-        <NavReleasesList
-          releases={this.props.releases}
-          activeRelease={this.props.activeRelease}
-          selectedRelease={this.props.selectedRelease}
-          onReleaseClick={this.props.onReleaseClick}
-          onReleaseMouseOver={this.props.onReleaseMouseOver} />
+      return (
+        <div>
+          <NavReleasesList
+            title="Releases"
+            releases={this.props.releases}
+            activeRelease={this.props.activeRelease}
+            selectedRelease={this.props.selectedRelease}
+            onReleaseClick={this.props.onReleaseClick}
+            onReleaseMouseOver={this.props.onReleaseMouseOver} />
+
+          <NavReleasesList
+            title="Mixes"
+            releases={this.props.mixes}
+            activeRelease={this.props.activeRelease}
+            selectedRelease={this.props.selectedRelease}
+            onReleaseClick={this.props.onReleaseClick}
+            onReleaseMouseOver={this.props.onReleaseMouseOver} />
+        </div>
       )
     }
+  }
 
+  render() {
     return (
       <div className="nav">
   			<div className="nav__container">
   				<img className="nav__logo" src="img/logo.png" />
-          {navContent}
+          {this.getBody()}
   			</div>
   		</div>
     );
   }
 }
 
-export default DesktopNav;
+export default NavDesktop;
