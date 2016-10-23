@@ -23,16 +23,23 @@ export default class App extends Component {
   }
 
   onReleaseMouseOver(e) {
-    this.setState({ activeRelease: this.state.releases[e.currentTarget.dataset.releaseId] });
+    this.setState({
+      activeRelease: this.state.releases[e.currentTarget.dataset.releaseId]
+    });
   }
 
   onReleaseClick(e) {
-    this.setState({ selectedRelease: this.state.releases[e.currentTarget.dataset.releaseId] });
+    this.setState({
+      selectedRelease: this.state.releases[e.currentTarget.dataset.releaseId]
+    });
+
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 
   onBackClick() {
-    this.setState({ selectedRelease: null });
+    this.setState({
+      selectedRelease: null
+    });
   }
 
   render() {
