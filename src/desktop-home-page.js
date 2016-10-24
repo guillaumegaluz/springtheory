@@ -23,7 +23,7 @@ class DesktopHomePage extends Component {
           selectedItem={this.props.selectedItem}
           onItemHover={this.props.onItemHover}
           onBackClick={this.props.onBackClick}
-          onReleaseClick={this.props.onReleaseClick} />
+          onItemClick={this.props.onItemClick} />
 
         <Hero
           releaseId={this.getReleaseId()} />

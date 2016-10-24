@@ -8,7 +8,7 @@ class MobileHomePage extends Component {
       <div
           className="release-container"
           data-release-id={release.id}
-          onClick={this.props.onReleaseClick}>
+          onClick={this.props.onItemClick}>
         <div className="release-info">
           <div className="release-info-artist">{release.artist}</div>
           <div className="release-info-title">{release.title}</div>

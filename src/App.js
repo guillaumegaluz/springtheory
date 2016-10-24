@@ -24,7 +24,7 @@ export default class App extends Component {
     };
 
     this.onItemHover = this.onItemHover.bind(this);
-    this.onReleaseClick = this.onReleaseClick.bind(this);
+    this.onItemClick = this.onItemClick.bind(this);
     this.onBackClick = this.onBackClick.bind(this);
   }
 
@@ -34,7 +34,7 @@ export default class App extends Component {
     });
   }
 
-  onReleaseClick(e) {
+  onItemClick(e) {
     this.setState({
       selectedItem: this.state.allMedia[e.currentTarget.dataset.releaseId]
     });
@@ -57,7 +57,7 @@ export default class App extends Component {
           mixes={this.state.mixes}
           selectedItem={this.state.selectedItem}
           onBackClick={this.onBackClick}
-          onReleaseClick={this.onReleaseClick} />
+          onItemClick={this.onItemClick} />
       );
     } else {
       return (
@@ -67,7 +67,7 @@ export default class App extends Component {
           mixes={this.state.mixes}
           selectedItem={this.state.selectedItem}
           onBackClick={this.onBackClick}
-          onReleaseClick={this.onReleaseClick}
+          onItemClick={this.onItemClick}
 
           hoveredItem={this.state.hoveredItem}
           onItemHover={this.onItemHover} />
