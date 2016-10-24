@@ -20,7 +20,7 @@ export default class App extends Component {
       releases: releases,
       mixes: mixes,
       hoveredItem: releases[latestReleaseId],
-      selectedRelease: null
+      selectedItem: null,
     };
 
     this.onItemHover = this.onItemHover.bind(this);
@@ -36,7 +36,7 @@ export default class App extends Component {
 
   onReleaseClick(e) {
     this.setState({
-      selectedRelease: this.state.allMedia[e.currentTarget.dataset.releaseId]
+      selectedItem: this.state.allMedia[e.currentTarget.dataset.releaseId]
     });
 
     document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -44,7 +44,7 @@ export default class App extends Component {
 
   onBackClick() {
     this.setState({
-      selectedRelease: null
+      selectedItem: null
     });
   }
 
@@ -52,8 +52,10 @@ export default class App extends Component {
     if (mobile()) {
       return (
         <MobileHomePage
+          media={this.state.mediaPerType}
           releases={this.state.releases}
-          selectedRelease={this.state.selectedRelease}
+          mixes={this.state.mixes}
+          selectedItem={this.state.selectedItem}
           onBackClick={this.onBackClick}
           onReleaseClick={this.onReleaseClick} />
       );
@@ -63,7 +65,7 @@ export default class App extends Component {
           media={this.state.mediaPerType}
           releases={this.state.releases}
           mixes={this.state.mixes}
-          selectedRelease={this.state.selectedRelease}
+          selectedItem={this.state.selectedItem}
           onBackClick={this.onBackClick}
           onReleaseClick={this.onReleaseClick}
 

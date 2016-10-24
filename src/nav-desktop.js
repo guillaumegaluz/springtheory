@@ -10,7 +10,6 @@ class NavDesktop extends Component {
         title="Releases"
         releases={this.props.releases}
         hoveredItem={this.props.hoveredItem}
-        selectedRelease={this.props.selectedRelease}
         onReleaseClick={this.props.onReleaseClick}
         onItemHover={this.props.onItemHover} />
     );
@@ -22,17 +21,16 @@ class NavDesktop extends Component {
         title="Mixes"
         releases={this.props.mixes}
         hoveredItem={this.props.hoveredItem}
-        selectedRelease={this.props.selectedRelease}
         onReleaseClick={this.props.onReleaseClick}
         onItemHover={this.props.onItemHover} />
     )
   }
 
   getBody() {
-    if (this.props.selectedRelease) {
+    if (this.props.selectedItem) {
       return (
         <NavReleaseDetails
-          selectedRelease={this.props.selectedRelease}
+          selectedItem={this.props.selectedItem}
           onBackClick={this.props.onBackClick} />
       );
     } else {

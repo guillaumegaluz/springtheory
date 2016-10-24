@@ -5,8 +5,8 @@ import Hero from './hero';
 
 class DesktopHomePage extends Component {
   getReleaseId () {
-    if (this.props.selectedRelease) {
-      return this.props.selectedRelease.id;
+    if (this.props.selectedItem) {
+      return this.props.selectedItem.id;
     } else {
       return this.props.hoveredItem.id;
     }
@@ -20,7 +20,7 @@ class DesktopHomePage extends Component {
           releases={this.props.releases}
           mixes={this.props.mixes}
           hoveredItem={this.props.hoveredItem}
-          selectedRelease={this.props.selectedRelease}
+          selectedItem={this.props.selectedItem}
           onItemHover={this.props.onItemHover}
           onBackClick={this.props.onBackClick}
           onReleaseClick={this.props.onReleaseClick} />
