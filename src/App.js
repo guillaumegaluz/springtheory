@@ -19,8 +19,8 @@ export default class App extends Component {
       mediaPerType: mediaPerType,
       releases: releases,
       mixes: mixes,
-      hoveredItem: releases[latestReleaseId],
-      selectedItem: null,
+      hoveredItemId: latestReleaseId,
+      selectedItemId: null,
     };
 
     this.onItemHover = this.onItemHover.bind(this);
@@ -30,13 +30,13 @@ export default class App extends Component {
 
   onItemHover(e) {
     this.setState({
-      hoveredItem: this.state.allMedia[e.currentTarget.dataset.releaseId]
+      hoveredItemId: e.currentTarget.dataset.releaseId
     });
   }
 
   onItemClick(e) {
     this.setState({
-      selectedItem: this.state.allMedia[e.currentTarget.dataset.releaseId]
+      selectedItemId: e.currentTarget.dataset.releaseId
     });
 
     document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -44,19 +44,20 @@ export default class App extends Component {
 
   onBackClick() {
     this.setState({
-      selectedItem: null
+      selectedItemId: null
     });
   }
 
   getProps() {
     return {
-      media: this.state.mediaPerType,
+      allMedia: this.state.allMedia,
+      mediaPerType: this.state.mediaPerType,
       releases: this.state.releases,
       mixes: this.state.mixes,
-      selectedItem: this.state.selectedItem,
+      selectedItemId: this.state.selectedItemId,
       onBackClick: this.onBackClick,
       onItemClick: this.onItemClick,
-      hoveredItem: this.state.hoveredItem,
+      hoveredItemId: this.state.hoveredItemId,
       onItemHover: this.onItemHover
     }
   }

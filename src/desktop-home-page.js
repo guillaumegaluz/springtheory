@@ -5,11 +5,7 @@ import Hero from './hero';
 
 class DesktopHomePage extends Component {
   getItemId () {
-    if (this.props.selectedItem) {
-      return this.props.selectedItem.id;
-    } else {
-      return this.props.hoveredItem.id;
-    }
+    return this.props.selectedItemId ? this.props.selectedItemId.id : this.props.hoveredItemId;
   }
 
   render() {

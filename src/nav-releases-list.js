@@ -7,7 +7,7 @@ class NavReleasesList extends Component {
     const navContentItems = [];
 
     for (const releaseId in this.props.releases) {
-      const className = (releaseId === this.props.hoveredItem.id) ? 'selected' : '';
+      const className = (releaseId === this.props.hoveredItemId) ? 'selected' : '';
 
       navContentItems.push(
         <NavContentItem
