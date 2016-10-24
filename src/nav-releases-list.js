@@ -15,7 +15,7 @@ class NavReleasesList extends Component {
           className={className}
           release={this.props.releases[releaseId]}
           onReleaseClick={this.props.onReleaseClick}
-          onReleaseMouseOver={this.props.onReleaseMouseOver} />
+          onItemHover={this.props.onItemHover} />
       );
     }
 

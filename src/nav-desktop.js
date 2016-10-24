@@ -12,7 +12,7 @@ class NavDesktop extends Component {
         hoveredItem={this.props.hoveredItem}
         selectedRelease={this.props.selectedRelease}
         onReleaseClick={this.props.onReleaseClick}
-        onReleaseMouseOver={this.props.onReleaseMouseOver} />
+        onItemHover={this.props.onItemHover} />
     );
   }
 
@@ -24,7 +24,7 @@ class NavDesktop extends Component {
         hoveredItem={this.props.hoveredItem}
         selectedRelease={this.props.selectedRelease}
         onReleaseClick={this.props.onReleaseClick}
-        onReleaseMouseOver={this.props.onReleaseMouseOver} />
+        onItemHover={this.props.onItemHover} />
     )
   }
 

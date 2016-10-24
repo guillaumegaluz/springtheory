@@ -23,12 +23,12 @@ export default class App extends Component {
       selectedRelease: null
     };
 
-    this.onReleaseMouseOver = this.onReleaseMouseOver.bind(this);
+    this.onItemHover = this.onItemHover.bind(this);
     this.onReleaseClick = this.onReleaseClick.bind(this);
     this.onBackClick = this.onBackClick.bind(this);
   }
 
-  onReleaseMouseOver(e) {
+  onItemHover(e) {
     this.setState({
       hoveredItem: this.state.allMedia[e.currentTarget.dataset.releaseId]
     });
@@ -68,7 +68,7 @@ export default class App extends Component {
           onReleaseClick={this.onReleaseClick}
 
           hoveredItem={this.state.hoveredItem}
-          onReleaseMouseOver={this.onReleaseMouseOver} />
+          onItemHover={this.onItemHover} />
       );
     }
   }

@@ -21,7 +21,7 @@ class DesktopHomePage extends Component {
           mixes={this.props.mixes}
           hoveredItem={this.props.hoveredItem}
           selectedRelease={this.props.selectedRelease}
-          onReleaseMouseOver={this.props.onReleaseMouseOver}
+          onItemHover={this.props.onItemHover}
           onBackClick={this.props.onBackClick}
           onReleaseClick={this.props.onReleaseClick} />
 
