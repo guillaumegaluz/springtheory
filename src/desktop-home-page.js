@@ -4,7 +4,7 @@ import NavDesktop from './nav-desktop';
 import Hero from './hero';
 
 class DesktopHomePage extends Component {
-  getReleaseId () {
+  getItemId () {
     if (this.props.selectedItem) {
       return this.props.selectedItem.id;
     } else {
@@ -15,18 +15,8 @@ class DesktopHomePage extends Component {
   render() {
     return (
       <div>
-        <NavDesktop
-          media={this.props.media}
-          releases={this.props.releases}
-          mixes={this.props.mixes}
-          hoveredItem={this.props.hoveredItem}
-          selectedItem={this.props.selectedItem}
-          onItemHover={this.props.onItemHover}
-          onBackClick={this.props.onBackClick}
-          onItemClick={this.props.onItemClick} />
-
-        <Hero
-          releaseId={this.getReleaseId()} />
+        <NavDesktop {...this.props} />
+        <Hero releaseId={this.getItemId()} />
       </div>
     );
   }

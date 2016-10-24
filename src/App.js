@@ -48,29 +48,27 @@ export default class App extends Component {
     });
   }
 
+  getProps() {
+    return {
+      media: this.state.mediaPerType,
+      releases: this.state.releases,
+      mixes: this.state.mixes,
+      selectedItem: this.state.selectedItem,
+      onBackClick: this.onBackClick,
+      onItemClick: this.onItemClick,
+      hoveredItem: this.state.hoveredItem,
+      onItemHover: this.onItemHover
+    }
+  }
+
   render() {
     if (mobile()) {
       return (
-        <MobileHomePage
-          media={this.state.mediaPerType}
-          releases={this.state.releases}
-          mixes={this.state.mixes}
-          selectedItem={this.state.selectedItem}
-          onBackClick={this.onBackClick}
-          onItemClick={this.onItemClick} />
+        <MobileHomePage {...this.getProps()} />
       );
     } else {
       return (
-        <DesktopHomePage
-          media={this.state.mediaPerType}
-          releases={this.state.releases}
-          mixes={this.state.mixes}
-          selectedItem={this.state.selectedItem}
-          onBackClick={this.onBackClick}
-          onItemClick={this.onItemClick}
-
-          hoveredItem={this.state.hoveredItem}
-          onItemHover={this.onItemHover} />
+        <DesktopHomePage {...this.getProps()} />
       );
     }
   }
