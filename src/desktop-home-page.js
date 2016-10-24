@@ -8,7 +8,7 @@ class DesktopHomePage extends Component {
     if (this.props.selectedRelease) {
       return this.props.selectedRelease.id;
     } else {
-      return this.props.activeRelease.id;
+      return this.props.hoveredItem.id;
     }
   }
 
@@ -16,9 +16,10 @@ class DesktopHomePage extends Component {
     return (
       <div>
         <NavDesktop
+          media={this.props.media}
           releases={this.props.releases}
           mixes={this.props.mixes}
-          activeRelease={this.props.activeRelease}
+          hoveredItem={this.props.hoveredItem}
           selectedRelease={this.props.selectedRelease}
           onReleaseMouseOver={this.props.onReleaseMouseOver}
           onBackClick={this.props.onBackClick}

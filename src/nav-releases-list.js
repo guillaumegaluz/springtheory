@@ -7,7 +7,7 @@ class NavReleasesList extends Component {
     const navContentItems = [];
 
     for (const releaseId in this.props.releases) {
-      const className = (releaseId === this.props.activeRelease.id) ? 'selected' : '';
+      const className = (releaseId === this.props.hoveredItem.id) ? 'selected' : '';
 
       navContentItems.push(
         <NavContentItem
@@ -23,13 +23,19 @@ class NavReleasesList extends Component {
   }
 
   render() {
+    const items = this.getNavItems();
+
+    if (items.length === 0) {
+      return null;
+    }
+
     return (
       <div className="nav__item">
         <div className="nav__title">
           <span className="nav__title--main">{this.props.title}</span>
         </div>
         <div className="nav__content">
-          {this.getNavItems()}
+          {items}
         </div>
       </div>
     );

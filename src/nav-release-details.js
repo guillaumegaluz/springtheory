@@ -3,11 +3,11 @@ import _ from 'underscore';
 import mobile from 'is-mobile';
 
 class NavReleaseDetails extends Component {
-  renderImages(release) {
+  renderMobileImages() {
     if (mobile()) {
       return (
         <div className="artwork-wrapper">
-          <div className={`artwork ${release.id}`}></div>
+          <div className={`artwork ${this.props.selectedRelease.id}`}></div>
         </div>
       );
     }
@@ -73,11 +73,15 @@ class NavReleaseDetails extends Component {
   }
 
   renderBack() {
-    return (
-      <div className="nav__link" onClick={this.props.onBackClick}>
-        &larr; All Releases
-      </div>
-    );
+    if (this.props.selectedRelease.id.slice(0,2) === 'st') {
+      return (
+        <div className="nav__link" onClick={this.props.onBackClick}>&larr; All Releases</div>
+      );
+    } else {
+      return (
+        <div className="nav__link" onClick={this.props.onBackClick}>&larr; All Mixes</div>
+      );
+    }
   }
 
   render() {
@@ -93,7 +97,7 @@ class NavReleaseDetails extends Component {
         <div className="tracklist">
           {this.renderTracks()}
         </div>
-        {this.renderImages(this.props.selectedRelease)}
+        {this.renderMobileImages()}
         <div className="credits">
           <p>{`Written and Produced by ${this.props.selectedRelease.artist}`}</p>
           <p>{`Artwork by ${this.props.selectedRelease.artwork_name}`}</p>

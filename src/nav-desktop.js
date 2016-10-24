@@ -4,6 +4,30 @@ import NavReleasesList from './nav-releases-list';
 import NavReleaseDetails from './nav-release-details';
 
 class NavDesktop extends Component {
+  getReleases() {
+    return (
+      <NavReleasesList
+        title="Releases"
+        releases={this.props.releases}
+        hoveredItem={this.props.hoveredItem}
+        selectedRelease={this.props.selectedRelease}
+        onReleaseClick={this.props.onReleaseClick}
+        onReleaseMouseOver={this.props.onReleaseMouseOver} />
+    );
+  }
+
+  getMixes() {
+    return (
+      <NavReleasesList
+        title="Mixes"
+        releases={this.props.mixes}
+        hoveredItem={this.props.hoveredItem}
+        selectedRelease={this.props.selectedRelease}
+        onReleaseClick={this.props.onReleaseClick}
+        onReleaseMouseOver={this.props.onReleaseMouseOver} />
+    )
+  }
+
   getBody() {
     if (this.props.selectedRelease) {
       return (
@@ -14,21 +38,8 @@ class NavDesktop extends Component {
     } else {
       return (
         <div>
-          <NavReleasesList
-            title="Releases"
-            releases={this.props.releases}
-            activeRelease={this.props.activeRelease}
-            selectedRelease={this.props.selectedRelease}
-            onReleaseClick={this.props.onReleaseClick}
-            onReleaseMouseOver={this.props.onReleaseMouseOver} />
-
-          <NavReleasesList
-            title="Mixes"
-            releases={this.props.mixes}
-            activeRelease={this.props.activeRelease}
-            selectedRelease={this.props.selectedRelease}
-            onReleaseClick={this.props.onReleaseClick}
-            onReleaseMouseOver={this.props.onReleaseMouseOver} />
+          {this.getReleases()}
+          {this.getMixes()}
         </div>
       )
     }
