@@ -8,12 +8,15 @@ class MobileHomePage extends Component {
       background: 'url("img/' + release.id + '.jpg")'
     };
 
+    const index = release.id.slice(2);
+
     return (
       <div
           className="release-container"
           data-release-id={release.id}
           onClick={this.props.onItemClick}>
         <div className="release-info">
+          <span className="release-info-index">{index}</span>
           <div className="release-info-artist">{release.artist}</div>
           <div className="release-info-title">{release.title}</div>
         </div>
