@@ -36,21 +36,3 @@ export function getMediaPerType() {
     mixes: mixesMappedById()
   }
 }
-
-
-// this returns an object that looks like:
-// {
-//   st001: {
-//     artist: 'Avalon Emerson',
-//     title: 'Church of SoMa',
-//     year: '2014',
-//     tracks: [
-//       {
-//         position: 'A1',
-//         title: 'Church of SoMa'
-//       },
-//       ...
-//     ],
-//   },
-//   ...
-// }
