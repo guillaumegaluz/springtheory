@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 class NavContentItem extends Component {
   render() {
+    const index = this.props.release.id.slice(2);
+
     return (
       <div
         className={`nav__content--item cursor--e-resize ${this.props.className}`}
@@ -9,6 +11,7 @@ class NavContentItem extends Component {
         onClick={this.props.onItemClick}
         onMouseOver={this.props.onItemHover} >
         <span className="nav__content--wrapper">
+          <span className="index">{index}</span>
           <span className="artist">{this.props.release.artist}</span>
           <span className="release">{this.props.release.title}</span>
         </span>
