@@ -11,4 +11,3 @@ open http://localhost:3000
 - Add a row in `data/releases.csv`
 - Add a row in `data/tracks.csv`
 - Add an image in `img/`
-- Tweak some CSS in index.html

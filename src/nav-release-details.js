@@ -5,9 +5,13 @@ import mobile from 'is-mobile';
 class NavReleaseDetails extends Component {
   renderMobileImages() {
     if (mobile()) {
+      const style = {
+        background: 'url("img/' + this.props.selectedItem.id + '.jpg")'
+      };
+
       return (
         <div className="artwork-wrapper">
-          <div className={`artwork ${this.props.selectedItem.id}`}></div>
+          <div className="artwork" style={style}></div>
         </div>
       );
     }

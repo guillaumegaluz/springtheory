@@ -4,6 +4,10 @@ import NavReleaseDetails from './nav-release-details';
 
 class MobileHomePage extends Component {
   renderRelease(release) {
+    const style = {
+      background: 'url("img/' + release.id + '.jpg")'
+    };
+
     return (
       <div
           className="release-container"
@@ -13,16 +17,18 @@ class MobileHomePage extends Component {
           <div className="release-info-artist">{release.artist}</div>
           <div className="release-info-title">{release.title}</div>
         </div>
-        <div className={`artwork ${release.id}`}></div>
+        <div className="artwork" style={style}></div>
       </div>
     )
   }
 
   getBody() {
-    if (this.props.selectedRelease) {
+    if (this.props.selectedItemId) {
+      const selectedItem = this.props.allMedia[this.props.selectedItemId];
+
       return (
         <NavReleaseDetails
-          selectedRelease={this.props.selectedRelease}
+          selectedItem={selectedItem}
           onBackClick={this.props.onBackClick} />
       );
     } else {

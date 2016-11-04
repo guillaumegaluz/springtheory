@@ -5,6 +5,9 @@ import {getAllMedia, getMediaPerType} from './lib/data-parser';
 import DesktopHomePage from './desktop-home-page';
 import MobileHomePage from './mobile-home-page';
 
+// Flags
+const MIXES_FLAG = false;
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +21,7 @@ export default class App extends Component {
       allMedia: allMedia,
       mediaPerType: mediaPerType,
       releases: releases,
-      mixes: mixes,
+      mixes: MIXES_FLAG ? mixes : [],
       hoveredItemId: latestReleaseId,
       selectedItemId: null,
     };
