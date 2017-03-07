@@ -1,4 +1,9 @@
 id,side,position,title
+st009,A,1,Morning Shift
+st009,A,2,Forgetful Dance
+st009,B,1,Jup Jup
+st009,B,2,Smudge
+
 st008,A,1,Ray of Light 95'
 st008,A,2,Introduction to WS
 st008,A,3,Danny's Telephone Voice
@@ -12,7 +17,7 @@ st008,D,2,Zora Scales (Step 1)
 
 st007,A,1,Miles
 st007,A,2,Blue
-st007,B,3,Varna
+st007,B,1,Varna
 
 st006,A,1,Clepsydra
 st006,A,2,Seven - Segments
