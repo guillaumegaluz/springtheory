@@ -15,7 +15,6 @@ const ReleasesList = function(props) {
         Object.keys(releases).map(releaseId => {
           const release = releases[releaseId]
           return (
-            // releaseId === hoveredItemId ? 'selected' : ''
             <div
               key={releaseId}
               style={styles.row}
