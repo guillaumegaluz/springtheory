@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import mobile from 'is-mobile';
 
-import {getAllMedia, getMediaPerType} from './lib/data-parser';
-import DesktopHomePage from './desktop-home-page';
-import MobileHomePage from './mobile-home-page';
+import {
+  getAllMedia,
+  getMediaPerType
+} from '../lib/data-parser';
+
+import HomeDesktop from './home-desktop';
+import HomeMobile from './home-mobile';
 
 // Flags
 const MIXES_FLAG = false;
@@ -21,23 +25,19 @@ export default class App extends Component {
       allMedia: allMedia,
       mediaPerType: mediaPerType,
       releases: releases,
-      mixes: MIXES_FLAG ? mixes : [],
+      mixes: mixes,
       hoveredItemId: latestReleaseId,
       selectedItemId: null,
     };
-
-    this.onItemHover = this.onItemHover.bind(this);
-    this.onItemClick = this.onItemClick.bind(this);
-    this.onBackClick = this.onBackClick.bind(this);
   }
 
-  onItemHover(e) {
+  onItemHover = (e) => {
     this.setState({
       hoveredItemId: e.currentTarget.dataset.releaseId
     });
   }
 
-  onItemClick(e) {
+  onItemClick = (e) => {
     this.setState({
       selectedItemId: e.currentTarget.dataset.releaseId
     });
@@ -45,22 +45,31 @@ export default class App extends Component {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 
-  onBackClick() {
+  onBackClick = () => {
     this.setState({
       selectedItemId: null
     });
   }
 
   getProps() {
+    const {
+      allMedia,
+      mediaPerType,
+      releases,
+      mixes,
+      selectedItemId,
+      hoveredItemId
+    } = this.state;
+
     return {
-      allMedia: this.state.allMedia,
-      mediaPerType: this.state.mediaPerType,
-      releases: this.state.releases,
-      mixes: this.state.mixes,
-      selectedItemId: this.state.selectedItemId,
+      allMedia: allMedia,
+      mediaPerType: mediaPerType,
+      releases: releases,
+      mixes: mixes,
+      selectedItemId: selectedItemId,
       onBackClick: this.onBackClick,
       onItemClick: this.onItemClick,
-      hoveredItemId: this.state.hoveredItemId,
+      hoveredItemId: hoveredItemId,
       onItemHover: this.onItemHover
     }
   }
@@ -68,11 +77,11 @@ export default class App extends Component {
   render() {
     if (mobile()) {
       return (
-        <MobileHomePage {...this.getProps()} />
+        <HomeMobile {...this.getProps()} />
       );
     } else {
       return (
-        <DesktopHomePage {...this.getProps()} />
+        <HomeDesktop {...this.getProps()} />
       );
     }
   }
