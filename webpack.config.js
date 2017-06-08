@@ -2,6 +2,10 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
+  devServer: {
+    host: '0.0.0.0',
+    disableHostCheck: true
+  },
   devtool: 'eval',
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
