@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Boilerplate for ReactJS project with hot code reloading",
   "scripts": {
-    "start": "node server.js --host 0.0.0.0 --public spring-theory.com",
+    "start": "node server.js --public spring-theory.com",
     "lint": "eslint src"
   },
   "repository": {
