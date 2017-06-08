@@ -4,7 +4,8 @@ var webpack = require('webpack');
 module.exports = {
   devServer: {
     host: '0.0.0.0',
-    disableHostCheck: true
+    disableHostCheck: true,
+    public: 'spring-theory.com'
   },
   devtool: 'eval',
   entry: [
