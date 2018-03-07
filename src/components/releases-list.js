@@ -36,10 +36,10 @@ const ReleasesList = function(props) {
 
 const styles = {
   title: {
-    fontSize: '24px',
+    fontSize: '30px',
     fontWeight: 'bold',
     lineHeight: '36px',
-    marginBottom: '12px'
+    marginBottom: '20px'
   },
   row: {
     padding: '2px 0',

@@ -51,10 +51,9 @@ const styles = {
     overflow: 'scroll'
   },
   logo: {
-    width: '100px',
-    height: '70px',
-    marginBottom: '20px',
-    marginLeft: '-5px'
+    width: '80px',
+    height: '58px',
+    marginBottom: '30px'
   }
 };
 
