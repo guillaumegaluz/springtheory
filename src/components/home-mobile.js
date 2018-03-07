@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ReleaseDetails from './release-details';
 import Artwork from './artwork';
+import Links from './links';
 
 const HomeMobile = function(props) {
   const {
@@ -15,6 +16,7 @@ const HomeMobile = function(props) {
   return (
     <div style={styles.content}>
 			<img style={styles.logo} src="img/logo.png" />
+      <Links />
       {
         !selectedItemId &&
           Object.keys(releases).map(releaseId => {

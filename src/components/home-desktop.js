@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import ReleasesList from './releases-list';
 import ReleaseDetails from './release-details';
 import Artwork from './artwork';
+import Links from './links';
 
 const HomeDesktop = function(props) {
   const {
@@ -19,6 +20,7 @@ const HomeDesktop = function(props) {
     <div>
       <div style={styles.content}>
 				<img src="img/logo.png" style={styles.logo} />
+        <Links />
         {
           selectedItemId &&
             <ReleaseDetails
@@ -49,9 +51,10 @@ const styles = {
     overflow: 'scroll'
   },
   logo: {
-    width: '80px',
-    height: '58px',
-    marginBottom: '40px'
+    width: '100px',
+    height: '70px',
+    marginBottom: '20px',
+    marginLeft: '-5px'
   }
 };
 
