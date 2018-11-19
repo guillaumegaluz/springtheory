@@ -29,7 +29,7 @@ const desktopStyles = {
   artworkWrapper: {
     display: 'inline-block',
     verticalAlign: 'top',
-    width: '56%'
+    width: '51%'
   }
 }
 

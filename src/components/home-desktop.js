@@ -45,7 +45,7 @@ const styles = {
   content: {
     display: 'inline-block',
     verticalAlign: 'top',
-    width: '44%',
+    width: '49%',
     padding: '40px 0 0 40px',
     height: '100%',
     overflow: 'scroll'

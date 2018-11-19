@@ -36,13 +36,14 @@ const ReleasesList = function(props) {
 
 const styles = {
   title: {
-    fontSize: '30px',
+    fontSize: '2vw',
     fontWeight: 'bold',
     lineHeight: '36px',
-    marginBottom: '20px'
+    marginBottom: '1.5vh'
   },
   row: {
-    padding: '2px 0',
+    fontSize: '1.2vw',
+    padding: '0.2vw 0',
   },
   releaseRow: {
     cursor: 'e-resize',
@@ -55,12 +56,12 @@ const styles = {
     color: '#ccc',
     fontStyle: 'normal',
     fontWeight: '600',
-    marginRight: '6px'
+    marginRight: '1vw'
   },
   releaseArtist: {
     fontStyle: 'normal',
     fontWeight: '600',
-    marginRight: '3px'
+    marginRight: '0.5vw'
   },
   releaseTitle: {
     fontStyle: 'italic',

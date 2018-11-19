@@ -1,4 +1,8 @@
 id,side,position,title
+st011,A,1,Closing
+st011,B,1,EST
+st011,B,2,Landing
+
 st010,A,1,Les Femmes
 st010,A,2,Las Murallas Del Sur
 st010,B,1,A Sad Story

@@ -12,7 +12,7 @@ const Links = function(props) {
 
 const styles = {
   links: {
-    marginBottom: '30px',
+    marginBottom: '3vh',
     textDecoration: 'none',
     color: '#33999980'
   },
