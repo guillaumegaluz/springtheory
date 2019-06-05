@@ -12,6 +12,7 @@ const ReleaseDetails = function(props) {
 
   const tracks = selectedItem.tracks;
   const trackGroupedBySide = _.groupBy(tracks, function(track){ return track.side; });
+  const playerWidth = mobile() ? '70%' : '400px';
 
   return (
     <div>
@@ -19,7 +20,7 @@ const ReleaseDetails = function(props) {
       <div style={styles.artist}>{selectedItem.artist}</div>
       <div style={styles.title}>{selectedItem.title}</div>
       <iframe
-        style={{border: '0', width: '70%', height: '42px'}}
+        style={{border: '0', width: playerWidth, height: '42px'}}
         src={`https://bandcamp.com/EmbeddedPlayer/album=${selectedItem.bandcamp_id}/size=small/bgcol=ffffff/linkcol=339999/transparent=true/`}
         seamless>
           <a href="http://spring-theory.bandcamp.com/album/agnys">{selectedItem.title}</a>
