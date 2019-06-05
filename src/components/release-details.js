@@ -97,7 +97,7 @@ const styles = {
     color: '#bbb'
   },
   creditsWrapper: {
-    margin: '20px 0'
+    margin: '40px 0 20px 0'
   },
   credits: {
     fontSize: '12px',

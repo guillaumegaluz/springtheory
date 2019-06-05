@@ -18,7 +18,7 @@ const Artwork = function(props) {
           backgroundSize: 'contain !important',
           height: mobile() ? '100vw' : '100%',
           width: '100%',
-          backgroundSize: mobile() ? 'contain' : 'cover'
+          backgroundSize: mobile() ? 'contain' : 'contain'
         }}>
 			</div>
 		</div>
