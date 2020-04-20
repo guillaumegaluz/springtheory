@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-import mobile from 'is-mobile';
+import mobile from 'is-mobile'
 
 const Artwork = function(props) {
   const {
