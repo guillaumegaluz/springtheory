@@ -9,8 +9,6 @@ import {
 import HomeDesktop from './home-desktop';
 import HomeMobile from './home-mobile';
 
-// Flags
-const MIXES_FLAG = false;
 
 export default class App extends Component {
   constructor(props) {
@@ -18,14 +16,12 @@ export default class App extends Component {
     const mediaPerType = getMediaPerType();
     const allMedia = getAllMedia();
     const releases = mediaPerType['releases'];
-    const mixes = mediaPerType['mixes'];
     const latestReleaseId = Object.keys(releases)[0];
 
     this.state = {
       allMedia: allMedia,
       mediaPerType: mediaPerType,
       releases: releases,
-      mixes: mixes,
       hoveredItemId: latestReleaseId,
       selectedItemId: null,
     };
@@ -56,7 +52,6 @@ export default class App extends Component {
       allMedia,
       mediaPerType,
       releases,
-      mixes,
       selectedItemId,
       hoveredItemId
     } = this.state;
@@ -65,7 +60,6 @@ export default class App extends Component {
       allMedia: allMedia,
       mediaPerType: mediaPerType,
       releases: releases,
-      mixes: mixes,
       selectedItemId: selectedItemId,
       onBackClick: this.onBackClick,
       onItemClick: this.onItemClick,
